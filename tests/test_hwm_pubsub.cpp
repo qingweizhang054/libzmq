@@ -93,7 +93,7 @@ int test_blocking (int send_hwm_, int msg_cnt_, const char *endpoint_)
     
     // add 200 ms to TCP handshake session.
     if (strncmp (endpoint_, "tcp://", 6) == 0) {
-        msleep (200); 
+        msleep (200);
     }
 
     //set a hwm on publisher
