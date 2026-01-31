@@ -90,13 +90,13 @@ int test_blocking (int send_hwm_, int msg_cnt_, const char *endpoint_)
     // Set up connect socket
     void *sub_socket = test_context_socket (ZMQ_SUB);
     TEST_ASSERT_SUCCESS_ERRNO (zmq_connect (sub_socket, pub_endpoint));
-    
+
     // add 200 ms to TCP handshake session.
-    if (strncmp (endpoint_, "tcp://", 6) == 0) {
-        msleep (200);
+    if (strncmp(endpoint_, "tcp://", 6) == 0) {
+      msleep(200);
     }
 
-    //set a hwm on publisher
+    // set a hwm on publisher
     TEST_ASSERT_SUCCESS_ERRNO (
       zmq_setsockopt (pub_socket, ZMQ_SNDHWM, &send_hwm_, sizeof (send_hwm_)));
     int wait = 1;
